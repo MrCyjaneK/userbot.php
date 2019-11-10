@@ -4,7 +4,7 @@ if ($update['patient']) {
 }
 $start_time = $update['message']['date'];
 if ($update['message']['out'] == true) {
-    if ($update['message']['message'] == ".ping") {
+    if (strtolower($update['message']['message']) == ".ping") {
         $ping = "<i>Pong...</i>";
         logger($update['message']['to_id']);
         $MadelineProto->messages->editMessage(
