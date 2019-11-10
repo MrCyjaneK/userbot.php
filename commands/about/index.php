@@ -14,6 +14,7 @@ if ($update['message']['out'] == true) {
                 'peer' => $update['message']['to_id'],
                 'id' => $update['message']['id'],
                 'message' => $message,
+                'no_webpage' => true,
                 'parse_mode' => 'HTML' 
             ]
         );
