@@ -1,6 +1,6 @@
 {
     "logging": {
-        "loglevel": 2,
+        "loglevel": 3,
         "deleteLogOnStart": true
     }
 }
