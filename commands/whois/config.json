@@ -6,6 +6,7 @@
         "website": "mrcyjanek.net"
     },
     "about": "Get information about user",
+    "syntax": "whois InputPeer(username,id)",
     "updates": {
         "updateNewMessage": true,
         "updateMessageID": false,

@@ -6,6 +6,7 @@
         "website": "mrcyjanek.net"
     },
     "about": "Check how fast is your userbot.",
+    "syntax": "Usage: '.ping'",
     "updates": {
         "updateNewMessage": true,
         "updateMessageID": false,

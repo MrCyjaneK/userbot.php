@@ -6,6 +6,7 @@
         "website": "mrcyjanek.net"
     },
     "about": "Manage commands",
+    "syntax": "    - cmds help\n    - cmds list [active(true\/false default: both)]\n    - cmds setactive plugin_name active(true\/false)\n    - cmds about plugin_name",
     "updates": {
         "updateNewMessage": true,
         "updateMessageID": false,
