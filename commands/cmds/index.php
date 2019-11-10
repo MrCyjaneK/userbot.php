@@ -13,9 +13,7 @@ if ($update['message']['out'] == true) {
         if (isset($arg[1])) {
             if ($arg[1] == 'help') {
                 $reply = "<b>Supported cmds:</b>\n".
-                "<code>    -</code> <b>cmds help</b>\n".
-                "<code>    -</code> <b>cmds list [active(true/false default: both)]</b>\n".
-                "<code>    -</code> <b>cmds setactive plugin_name active(true/false)";
+                json_decode(file_get_contents("./commands/$plugin/config.json"))->syntax;
             }
             if ($arg[1] == 'list') {
                 $active = true;
@@ -70,6 +68,33 @@ if ($update['message']['out'] == true) {
                         } else {
                             $reply .= "disabled";
                         }
+                    } else {
+                        $reply = "Plugin not found";
+                    }
+                }
+            }
+            if ($arg[1] == 'about') {
+                $reply = "<b>Invalid syntax</b>\nUse: cmds about plugin_name";
+                if (isset($arg[2])) {
+                    $plugin_name = $arg[2];
+                    $plugins = scandir("./commands");
+                    unset($plugins[0]); // .
+                    unset($plugins[1]); // ..
+                    if (in_array($plugin_name,$plugins)) {
+                        $pluginconfig = json_decode(file_get_contents('./commands/'.$plugin_name.'/config.json'));
+                        file_put_contents('./commands/'.$plugin_name.'/config.json',json_encode($pluginconfig,JSON_PRETTY_PRINT));
+                        $reply = "<b>Plugin:</b> <code>$plugin_name</code> is now <i>";
+                        if ($pluginconfig->active) {
+                            $reply .= "enabled";
+                        } else {
+                            $reply .= "disabled";
+                        }
+                        $reply .= "</i>\n";
+                        $reply .= "<code>Created by:</code>\n".
+                                  "👨‍💻<i>".$pluginconfig->author->fullname."</i> (".$pluginconfig->author->nickname.")\n".
+                                  "🌐".$pluginconfig->author->website."\n".
+                                  "🔶".$pluginconfig->about."\n".
+                                  "💡Manual:\n<code>".$pluginconfig->syntax."</code>";
                     } else {
                         $reply = "Plugin not found";
                     }
