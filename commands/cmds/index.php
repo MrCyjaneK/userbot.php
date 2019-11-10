@@ -4,10 +4,10 @@ if ($update['patient']) {
 }
 if ($update['message']['out'] == true) {
     $arg = explode(" ",$update['message']['message']);
-    $cmd = $arg[0];
     foreach ($arg as $key => $val) {
         $arg[$key] = strtolower($val);
     }
+    $cmd = $arg[0];
     if ($cmd == 'cmds') {
         $reply = "<b>Invaid syntax</b>\nUse: <code>cmds help</code>";
         if (isset($arg[1])) {
