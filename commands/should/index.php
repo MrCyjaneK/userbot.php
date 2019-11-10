@@ -23,7 +23,7 @@ if ($update['message']['out'] == true) {
                     ['_' => 'documentAttributeAnimated']
                 ]
             ],
-            'message' => "Personally I think that ".$answer->answer,
+            'message' => "Personally, I think that ".$answer->answer,
         ]);
     }
 }
