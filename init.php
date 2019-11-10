@@ -21,7 +21,7 @@ logger('Logging in');
 $settings['logger']['logger'] = \danog\MadelineProto\Logger::FILE_LOGGER;
 $MadelineProto = new \danog\MadelineProto\API('userbot.php.session');
 $MadelineProto->settings = $settings;
-$MadelineProto->async(true);
+$MadelineProto->async(false);
 $MadelineProto->start();
 $global = [
     "count" => 0
