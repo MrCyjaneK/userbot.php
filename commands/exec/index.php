@@ -16,13 +16,17 @@ if ($update['message']['out'] == true) {
                 'parse_mode' => 'HTML' 
             ]
         );
+        $time_start = microtime(true);
         $exec = $arg[1];
-        $result = htmlspecialchars(shell_exec("timeout 25 ".$exec));
+        $result = htmlspecialchars(shell_exec($exec." 2>&1"));
+        $time_end = microtime(true);
+        $execution_time = round(($time_end - $time_start),4);
         $message = "<i>Command: </i> <code>".$exec."</code>\n".
                    "<b>Result:</b>\n".
-                   "<code>$result\n</code>".
+                   "<code>$result</code>\n".
                    "<b>Path:</b> <code>".explode(PHP_EOL,shell_exec('pwd'))[0]."</code>\n".
-                   "<b>User:</b> <code>".explode(PHP_EOL,shell_exec('whoami'))[0]."</code>";
+                   "<b>User:</b> <code>".explode(PHP_EOL,shell_exec('whoami'))[0]."</code>\n".
+                   "<b>Time:</b> <code>$execution_time</code> sec";
         $MadelineProto->messages->editMessage(
             [
                 'peer' => $update['message']['to_id'],
