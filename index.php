@@ -1,0 +1,2 @@
+<?php
+include "./start.php";
