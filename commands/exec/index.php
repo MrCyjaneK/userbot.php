@@ -17,12 +17,12 @@ if ($update['message']['out'] == true) {
             ]
         );
         $exec = $arg[1];
-        $result = htmlspecialchars(shell_exec($exec));
+        $result = htmlspecialchars(shell_exec("timeout 25 ".$exec));
         $message = "<i>Command: </i> <code>".$exec."</code>\n".
                    "<b>Result:</b>\n".
                    "<code>$result\n</code>".
                    "<b>Path:</b> <code>".explode(PHP_EOL,shell_exec('pwd'))[0]."</code>\n".
-                   "<b>User:</b> <code>".explode(PHP_EOL,shell_exec('pwd'))[0]."</code>";
+                   "<b>User:</b> <code>".explode(PHP_EOL,shell_exec('whoami'))[0]."</code>";
         $MadelineProto->messages->editMessage(
             [
                 'peer' => $update['message']['to_id'],
