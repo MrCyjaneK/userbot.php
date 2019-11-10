@@ -6,7 +6,6 @@ if ($update['message']['out'] == true) {
     $arg = explode(" ",$update['message']['message'],2);
     $arg[0] = strtolower($arg[0]);
     $cmd = $arg[0];
-    logger($arg,3);
     if ($cmd == "qrgen") {
         include './commands/qr_gen/phpqrcode.php';
         if (file_exists("tmp.png")) {
