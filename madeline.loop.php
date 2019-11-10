@@ -21,13 +21,17 @@ $plugins = scandir("./commands");
 unset($plugins[0]); // .
 unset($plugins[1]); // ..
 foreach ($plugins as $plugin) {
-    $pluginconfig = json_decode(file_get_contents("./commands/$plugin/config.json"));
-    if ($pluginconfig->active == false) {
-        continue;
-    }
-    $type = $update['_'];
-    if (!empty($pluginconfig->updates->$type)) {
-        logger("Loading plugin '$plugin',",5);
-        include "./commands/$plugin/".$pluginconfig->entrypoint;
+    try {
+        $pluginconfig = json_decode(file_get_contents("./commands/$plugin/config.json"));
+        if ($pluginconfig->active == false) {
+            continue;
+        }
+        $type = $update['_'];
+        if (!empty($pluginconfig->updates->$type)) {
+            logger("Loading plugin '$plugin',",5);
+            include "./commands/$plugin/".$pluginconfig->entrypoint;
+        }
+    } catch (Exception $e) {
+        logger($e,4);
     }
 }
