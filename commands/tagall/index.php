@@ -5,7 +5,7 @@ if ($update['patient']) {
 if ($update['message']['out'] == true) {
     $arg = explode(" ",$update['message']['message']);
     $cmd = $arg[0];
-    if (strtolower($cmd) == 'tagall') {
+    if (strtolower($cmd) == $config->prefix.'tagall') {
         $pwr_chat = $MadelineProto->get_pwr_chat($update['message']['to_id'],['async' => false]);
         $reply = "";
         foreach ($pwr_chat['participants'] as $participant) {

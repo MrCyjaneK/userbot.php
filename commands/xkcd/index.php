@@ -6,7 +6,7 @@ if ($update['message']['out'] == true) {
     $arg = explode(" ",$update['message']['message'],2);
     $arg[0] = strtolower($arg[0]);
     $cmd = $arg[0];
-    if ($cmd == ".xkcd") {
+    if ($cmd == $config->prefix."xkcd") {
         if (file_exists("tmp.png")) {
             unlink("tmp.png");
         }

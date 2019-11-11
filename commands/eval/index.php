@@ -6,7 +6,7 @@ if ($update['message']['out'] == true) {
     $arg = explode(" ",$update['message']['message'],2);
     $arg[0] = strtolower($arg[0]);
     $cmd = $arg[0];
-    if ($cmd == ".eval") {
+    if ($cmd == $config->prefix."eval") {
         $message = "<i>Evaluating...</i>";
         $MadelineProto->messages->editMessage(
             [

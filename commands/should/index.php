@@ -8,7 +8,7 @@ if ($update['message']['out'] == true) {
         $arg[$key] = strtolower($val);
     }
     $cmd = $arg[0];
-    if ($cmd == '.should') {
+    if ($cmd == $config->prefix.'should') {
         if (file_exists('yn.gif')) {
             unlink('yn.gif');
         }

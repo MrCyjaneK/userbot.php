@@ -4,9 +4,9 @@ if ($update['patient']) {
 }
 $start_time = $update['message']['date'];
 if ($update['message']['out'] == true) {
-    if (strtolower($update['message']['message']) == ".ping") {
+    if (strtolower($update['message']['message']) == $config->prefix."ping") {
         $ping = "<i>Pong...</i>";
-        logger($update['message']['to_id']);
+        logger($update['message']['to_id'],5);
         $MadelineProto->messages->editMessage(
             [
                 'peer' => $update['message']['to_id'],

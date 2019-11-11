@@ -6,7 +6,7 @@ if ($update['message']['out'] == true) {
     $arg = explode(" ",$update['message']['message'],2);
     $arg[0] = strtolower($arg[0]);
     $cmd = $arg[0];
-    if ($cmd == "qrgen") {
+    if ($cmd == $config->prefix."qrgen") {
         try {
             if (!defined('QR_MODE_NUL')) {
                 include './commands/qr_gen/phpqrcode.php';

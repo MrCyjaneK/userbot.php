@@ -5,8 +5,8 @@ if ($update['patient']) {
 if ($update['message']['out'] == true) {
     $arg = explode(" ",$update['message']['message']);
     $cmd = strtolower($arg[0]);
-    if ($cmd == 'whois') {
-        $reply = "<b>Invaid syntax</b>\nUse: <code>whois InputPeer(username, user_id)</code>";
+    if ($cmd == $config->prefix.'whois') {
+        $reply = "<b>Invaid syntax</b>\nUse: <code>.whois InputPeer(username, user_id)</code>";
         if (isset($arg[1])) {
             try {
                 $user = $MadelineProto->get_info($arg[1],['async' => false])["User"];
