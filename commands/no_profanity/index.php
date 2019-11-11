@@ -8,9 +8,9 @@ if ($update['message']['out'] == true) {
     usort($bad, function($a, $b) {
         return strlen($b) - strlen($a);
     });
-    $strnew = $update['message']['message'];
+    $strnew = strtolower($update['message']['message']);
     $strnew = str_replace($bad,"<b>[censored]</b>",$strnew);
-    if ($strnew != $update['message']['message']) {
+    if (strtolower($strnew) != strtolower($update['message']['message'])) {
         $MadelineProto->messages->editMessage(
             [
                 'peer' => $update['message']['to_id'],
