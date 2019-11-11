@@ -1,4 +1,5 @@
 {
+    "prefix": ".",
     "logging": {
         "loglevel": 3,
         "deleteLogOnStart": true
