@@ -7,9 +7,26 @@ if ($update['message']['out'] == true) {
     $arg[0] = strtolower($arg[0]);
     $cmd = $arg[0];
     if ($cmd == "qrgen") {
-        include './commands/qr_gen/phpqrcode.php';
+        try {
+            if (!defined('QR_MODE_NUL')) {
+                include './commands/qr_gen/phpqrcode.php';
+            }
+        } catch (Exception $e) {
+
+        }
         if (file_exists("tmp.png")) {
             unlink("tmp.png");
+        }
+        if (!isset($arg[1])) {
+            $MadelineProto->messages->editMessage(
+                [
+                    'peer' => $update['message']['to_id'],
+                    'id' => $update['message']['id'],
+                    'message' => "<b>Invalid syntax</b>",
+                    'no_webpage' => false,
+                    'parse_mode' => 'HTML' 
+                ]
+            );
         }
         logger(QRcode::png($arg[1],"tmp.png"),5);
         $MadelineProto->messages->sendMedia([
