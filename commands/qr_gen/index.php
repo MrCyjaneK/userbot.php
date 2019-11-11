@@ -27,16 +27,17 @@ if ($update['message']['out'] == true) {
                     'parse_mode' => 'HTML' 
                 ]
             );
+        } else {
+            logger(QRcode::png($arg[1],"tmp.png"),5);
+            $MadelineProto->messages->sendMedia([
+                'peer' => $update['message']['to_id'],
+                'media' => [
+                    '_' => 'inputMediaUploadedPhoto',
+                    'file' => "tmp.png"
+                ],
+                'message' => '<b>QRcode:</b> '.$arg[1],
+                'parse_mode' => 'HTML'
+            ]);
         }
-        logger(QRcode::png($arg[1],"tmp.png"),5);
-        $MadelineProto->messages->sendMedia([
-            'peer' => $update['message']['to_id'],
-            'media' => [
-                '_' => 'inputMediaUploadedPhoto',
-                'file' => "tmp.png"
-            ],
-            'message' => '<b>QRcode:</b> '.$arg[1],
-            'parse_mode' => 'HTML'
-        ]);
     }
 }
