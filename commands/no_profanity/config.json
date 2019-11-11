@@ -6,7 +6,7 @@
         "website": "mrcyjanek.net"
     },
     "about": "No curse, swearword, profanity, damnation or imprecation of any kind",
-    "syntax": "This plugin removes all bad words from your messages. Use cmds command to disable/enable",
+    "syntax": "This plugin removes all bad words from your messages. Use cmds command to disable\/enable",
     "updates": {
         "updateNewMessage": true,
         "updateMessageID": false,
