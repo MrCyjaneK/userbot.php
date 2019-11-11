@@ -6,7 +6,7 @@
         "website": "mrcyjanek.net"
     },
     "about": "Tag everybody in group\/channel",
-    "syntax": "Message should start with 'tagall'",
+    "syntax": "Message should start with '.tagall'",
     "updates": {
         "updateNewMessage": false,
         "updateMessageID": false,

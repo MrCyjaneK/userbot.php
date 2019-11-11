@@ -6,7 +6,7 @@
         "website": "mrcyjanek.net"
     },
     "about": "Generate QRcode from string",
-    "syntax": "Usage: 'qrgen string'\nExample:\n    - qrgen mrcyjanek.net\n    - qrgen bitcoin:1egacy......",
+    "syntax": "Usage: '.qrgen string'\nExample:\n    - '.qrgen mrcyjanek.net'\n    - '.qrgen bitcoin:1egacy......'",
     "updates": {
         "updateNewMessage": true,
         "updateMessageID": false,
