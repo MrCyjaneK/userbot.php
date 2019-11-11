@@ -1,5 +1,5 @@
 <?php
-foreach (glob("functions/*.php") as $filename) {
+foreach (glob("./functions/*.php") as $filename) {
     include $filename;
 }
 $config = json_decode(file_get_contents('config.json'));
@@ -10,6 +10,9 @@ if ($config->logging->deleteLogOnStart) {
 }
 logger("Loading config file");
 logger($config,5);
+logger("Refreshing commands config.json files");
+$_PLUGINCONFIG = [];
+refresh();
 if (!file_exists('madeline.php')) {
     logger("madeline.php is not downloaded, downloading");
     copy('https://phar.madelineproto.xyz/madeline.php', 'madeline.php');

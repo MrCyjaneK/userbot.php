@@ -109,5 +109,6 @@ if ($update['message']['out'] == true) {
                 'parse_mode' => 'HTML' 
             ]
         );
+        refresh(); // Update config
     }
 }
