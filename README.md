@@ -5,7 +5,7 @@ Telegram userbot in php, Thank's for creating MadelineProto @danog
 
 ```
 # Install php
-sudo apt install php7.3 php7.3-gd
+sudo apt install php7.3 php7.3-gd php7.3-mbstring
 # Clone repository
 git clone https://github.com/MrCyjaneK/userbot.php && cd userbot.php
 # Login
