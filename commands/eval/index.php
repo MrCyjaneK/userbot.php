@@ -32,7 +32,7 @@ if ($update['message']['out'] == true) {
         unlink($file);
         $time_end = microtime(true);
         $execution_time = round(($time_end - $time_start),4);
-        $message = "<i>Code: </i> <code>".$exec."</code>\n".
+        $message = "<b>Code: </b> <code>".$exec."</code>\n".
                    "<b>Result:</b>\n".
                    "<code>$result</code>\n".
                    "<b>Path:</b> <code>".explode(PHP_EOL,shell_exec('pwd'))[0]."</code>\n".

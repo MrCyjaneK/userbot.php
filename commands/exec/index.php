@@ -21,7 +21,7 @@ if ($update['message']['out'] == true) {
         $result = htmlspecialchars(shell_exec($exec." 2>&1"));
         $time_end = microtime(true);
         $execution_time = round(($time_end - $time_start),4);
-        $message = "<i>Command: </i> <code>".$exec."</code>\n".
+        $message = "<b>Command: </b> <code>".$exec."</code>\n".
                    "<b>Result:</b>\n".
                    "<code>$result</code>\n".
                    "<b>Path:</b> <code>".explode(PHP_EOL,shell_exec('pwd'))[0]."</code>\n".
