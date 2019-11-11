@@ -11,11 +11,13 @@ if (isset($update['message']['date'])) {
 } else {
     $update['patient'] = true;
 }
-
+if (!isset($update['message']['message'])) {
+    $update['patient'] = true;
+}
 global $global;
 global $_PLUGINCONFIG;
 $global['count']++;
-logger($global['count'],5);
+//logger($global['count'],5);
 
 logger($update,5);
 // See ./functions/config.php
