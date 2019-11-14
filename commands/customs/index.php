@@ -17,7 +17,7 @@ if ($update['message']['out'] == true) {
                 unset($commands[1]); // ..
                 $reply = "<b>Following custom commands are available</b>\n\n";
                 foreach ($commands as $cmd) {
-                    $reply .= "<code>$cmd</code>";
+                    $reply .= "<code>$cmd</code> ";
                 }
             }
             if (isset($arg[2])) {
