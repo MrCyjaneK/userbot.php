@@ -6,7 +6,7 @@
         "website": "mrcyjanek.net"
     },
     "about": "Uploads file from URL to telegram",
-    "syntax": "Usage: '.upload url'",
+    "syntax": "Usage: '.upload url'\n    - '.upload http://212.183.159.230/5MB.zip'\n    - '.upload debug.txt'",
     "updates": {
         "updateNewMessage": true,
         "updateMessageID": false,
