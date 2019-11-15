@@ -51,7 +51,7 @@ if ($update['message']['out'] == true) {
                 ],
                 ["async" => false]
             );
-            shell_exec('youtube-dl "'.$url.'" -o "./commands/youtube-dl/tmp/toconv'.$name.'.%(ext)s"');
+            shell_exec('LC_ALL=en_US.UTF-8 youtube-dl "'.$url.'" -o "./commands/youtube-dl/tmp/toconv'.$name.'.%(ext)s"');
             shell_exec('ffmpeg -i ./commands/youtube-dl/tmp/toconv* "./commands/youtube-dl/tmp/'.$name.'.mp4"');
             shell_exec('rm ./commands/youtube-dl/tmp/toconv*');
             // Fetch file name to upload;
