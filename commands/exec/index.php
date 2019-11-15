@@ -14,11 +14,12 @@ if ($update['message']['out'] == true) {
                 'id' => $update['message']['id'],
                 'message' => $message,
                 'parse_mode' => 'HTML' 
-            ]
+            ],
+            ["async" => false]
         );
         $time_start = microtime(true);
         $exec = $arg[1];
-        $result = htmlspecialchars(shell_exec($exec.' 2>&1 | sed -r \'s/\'$(echo -e "\033")\'\[[0-9]{1,2}(;([0-9]{1,2})?)?[mK]//g\''));
+        $result = htmlspecialchars(shell_exec($exec.' 2>&1'));
         $time_end = microtime(true);
         $execution_time = round(($time_end - $time_start),4);
         $message = "<b>Command: </b> <code>".$exec."</code>\n".
